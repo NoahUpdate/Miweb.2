@@ -6,6 +6,22 @@
    padding: 0;
    box-sizing: border-box;
 }
+/* Hamburguer */
+.hamburguer {
+    display: none;
+}
+
+.hamburguer_line {
+    background-color: #000;
+    border-radius: 2px;
+    width: 24px;
+    height: 4px;
+    margin: 2px 0px;
+}
+
+.checkbox {
+    display: none;
+}
 
 /* Desktop View */
 
@@ -256,16 +272,46 @@ header a{
 }
 
 /* Tablet View  */
-@media (min-width:640px) and (max-width:992px) {
-    header {
-        max-width: 100%;
-        height: auto;
+@media  (max-width:992px) {
+    /* hamburger */
+    .hamburguer {
         display: flex;
         flex-direction: column;
-        align-content: center;
-        background-color: rgb(20, 220, 160);
-        padding: 15px 15px 5px 15px;
+        align-content:center;
+
     }
+
+    #burger:checked ~ .header__navigation {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right:0px;
+        width: 18vw;
+        height: 45vw;
+        z-index: 1;
+        background-color: rgb(210, 220, 160);
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    /* Header */
+    header {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content:space-between;
+        background-color: rgb(20, 220, 160);
+        padding: 15px;
+    }
+
+    .header a {
+        font-weight: 520;
+        font-size: 17px;
+    }
+
     .header__logo {
         max-width: 100%;
         display: flex;
@@ -284,22 +330,12 @@ header a{
         align-items: center;
         justify-content: space-between;
         padding: 0px 70px;
+        display: none;
 
     }
 
     .header__navigation {
-        max-width: 100%;
-        height: auto;
-        color: #000;
-        font-family: Poppins;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0px 70px;
+        display: none;
     }
 
     .collection_container {
@@ -325,15 +361,31 @@ header a{
 
 /* Cellphone View  */
 @media (max-width:640px){
+    
+    #burger:checked ~ .header__navigation {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right:0px;
+        width: 20vw;
+        height: 45vw;
+        z-index: 1;
+        background-color: rgb(163, 20, 220);
+        justify-content: space-around;
+        align-items: center;
+    }
+
     header {
         max-width: 100%;
         height: auto;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-content: center;
         background-color: rgb(163, 20, 220);
         padding: 15px 15px 5px 15px;
     }
+
     .header__logo {
         max-width: 100%;
         display: flex;
@@ -345,31 +397,17 @@ header a{
     }
 
     .header__utils {
-        max-width: 100%;
-        height: 30px;
-        flex-shrink: 0;
-        display:flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0px 70px;
-
+        display: none;
     }
 
     .header__navigation {
-        max-width: 100%;
-        height: auto;
-        color: #000;
-        font-family: Poppins;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0px 70px;
+        display: none;
     }
 
+    .header a {
+       font-weight: 510;
+       font-size: 14px;
+    }
     .collection_container {
         width: 80vw;
         top:150px;
@@ -379,17 +417,18 @@ header a{
     }
 
     .collection_container h1 {
-        font-size:48px;
-        /* width: 100%; */
+        font-size: 2.5em;
+        width: 100%; 
         height: auto;
         line-height: 40px;
 
     }
 
-    .collection_container p{
-        width: 100%;
-        /* margin-bottom: 25px; */
+    .collection_container p {
+        width: 95%;
+        height: auto;
     }
+
     .collection_container button{
         padding: 12px 48px;
     }
